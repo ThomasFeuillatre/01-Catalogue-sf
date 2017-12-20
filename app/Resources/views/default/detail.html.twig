@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Catalogue de jeux</h1>
+    <h2>{{ jeu.title }}</h2>
+    <h4>{{ jeu.categorie.titre }}</h4>
+    <p><span class="bold">Description longue du jeu : </span>{{ jeu.descLong }}</p>
+    <p><span class="bold">Description courte du jeu : </span>{{ jeu.descrCourte }}</p>
+    <p><a href="{{ path('editor', {'id': jeu.id}) }}">Editer</a></p>
+    <p><a href="{{ path('homepage') }}">Retour</a></p>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+
+{% endblock %}

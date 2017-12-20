@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Catalogue de jeux</h1>
+    <h2>{{ jeu.title }}</h2>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
+{% block stylesheets %}
+{{ parent() }}
+    <style>
+        form label
+        {
+            padding-right: 20px;
+        }
+        div label, div textarea
+        {
+            vertical-align: middle;
+        }
+
+        form div
+        {
+            margin-bottom: 20px;
+        }
+    </style>
+
+{% endblock %}

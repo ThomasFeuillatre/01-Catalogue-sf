@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Catalogue de jeux</h1>
+    <h2>Tous les jeux</h2>
+
+    <ul>
+        <li class="listCateg"><a href="{{ path('homepage') }}">Toutes catégories</a></li>
+        {% for categorie in listeCategorie %}
+            <li class="listCateg"><a href="{{ path('homepage',{'categorie':categorie.titre, 'id':categorie.id}) }}">{{ categorie.titre }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% for jeu in listeJeux %}
+        <h3>{{ jeu.title }}</h3>
+        <p>{{ jeu.categorie.titre }}</p>
+        <p>{{ jeu.descrCourte }}</p>
+        <ul>
+            <li><a href="{{ path('detail',{'id': jeu.id} ) }}">Détail du jeu</a></li>
+            <li><a href="{{ path('editor',{'id' :jeu.id}) }}">Editer le jeu</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+<style>
+    .listCateg a
+    {
+        color: lawngreen;
+    }
+</style>
+
+{% endblock %}
